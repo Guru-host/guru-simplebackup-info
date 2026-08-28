@@ -10,7 +10,7 @@ Licence terms are provided with the purchase.
 
 > **This repository holds only the public feature overview and release notes.**
 > The plugin's source lives in a private repository and the installable zip is
-> only available to customers from their [account page](https://guru-host.co.uk/account)
+> only available to customers from their [account page](https://client.guru-host.co.uk/account)
 > after purchase — there is nothing to clone or download here.
 
 ## What it does
@@ -41,4 +41,4 @@ See [CHANGELOG.md](CHANGELOG.md) for the full version history.
 ## Questions
 
 * Product page & purchase: [client.guru-host.co.uk/store/guru-simplebackup](https://client.guru-host.co.uk/store/guru-simplebackup)
-* Existing customers: [your account](https://guru-host.co.uk/account) for downloads and support
+* Existing customers: [your account](https://client.guru-host.co.uk/account) for downloads and support
