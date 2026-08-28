@@ -17,6 +17,7 @@ Licence terms are provided with the purchase.
 
 * Full backups: database, uploads, themes and plugins, in one zip file
 * Two places to keep them: a folder on this server, and your own SFTP server, with the port and path you choose
+* SFTP logs in with a password or an SSH private key (passphrase-protected keys work too) — both stored encrypted
 * Daily, weekly and monthly schedules, each with its own time and its own "keep the last N" rule
 * Download any backup to your computer, from whichever place holds it
 * Restore from your list, from a file you upload through the browser, or from a file you copied onto the server yourself
