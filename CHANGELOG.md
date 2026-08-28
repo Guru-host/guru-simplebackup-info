@@ -1,0 +1,49 @@
+# Changelog
+
+All notable changes to Guru SimpleBackup are documented here. This mirrors the
+`== Changelog ==` section of the plugin's own `readme.txt`.
+
+## 0.6.0
+
+* Database tables can now be left out of a backup. A plugin's 404 log, a security audit trail or a scan cache can be bigger than the whole rest of your database put together, and nobody restores a backup to get their 404 log back — the Schedule tab now takes a list of table names to skip, with the common ones offered as one-click suggestions. Empty to begin with, so nothing changes until you ask for it, and the tables WordPress cannot work without are refused outright. Excluded tables are not in the backup and a restore cannot bring them back, which the screen says plainly.
+* While the database is being exported, the progress bar now moves in step with how much data has actually been written, and the message names the table it is working on — "table 41 of 161 — wp_redirection_404 (591,500 of 813,627 rows)". Before, one enormous table could hold the percentage still for twenty minutes and there was no way to tell hard work from a hang. The log also points out any single table that is a quarter of the database or more.
+* The free space check now reserves what the backup needs at its busiest moment rather than what the finished zip comes to. Halfway through, the uncompressed database export and the archive being packed are both on disk at once, and the old figure counted neither properly. The log now spells out what it has reserved and whether the file total was measured or merely assumed.
+* Fixed: a backup killed part way through — by a fatal error, an out of memory or a restarted container — left a job marked "running" that refused every later backup until an hourly clean-up happened to run. On a quiet site, or one with WordPress' own scheduler switched off, that could be for ever, with no way out except editing the database by hand. Stale jobs are now cleared the moment a backup or restore is started, the clean-up runs every five minutes instead of hourly, and `wp simple-backup cancel` clears a stuck job deliberately.
+* Fixed: since a crashed run no longer blocks the next one, its leftover working files (the uncompressed database export, a partial archive) used to be left behind for good instead of being cleaned up. They are now removed as soon as the job is cleared.
+* A backup that never finished now says so in the list, with the reason beside it, instead of sitting there as "running" for ever.
+* Fixed: pressing Stop while a restore was taking its safety backup stopped the safety backup instead of the restore — and the restore then carried on without a real way back. Stop now stops the restore itself, and a restore refuses to continue unless its safety backup actually completed.
+* `wp simple-backup run` accepts `--exclude-tables` to leave tables out of a single run without changing your settings.
+
+## 0.5.2
+
+* Fixed: a job already being worked on by one request (the browser's own polling, or wp-cron ticking it in the background) could be picked up again by another overlapping request at the same time, occasionally doubling up a pass and, in rare cases, throwing a harmless warning into the log. The job lock now uses an atomic claim that only one request can ever win.
+
+## 0.5.1
+
+* Fixed: when "keep a copy on this server" was switched off, the local copy of every backup was silently kept anyway instead of being removed once another destination held it — it now stays only until at least one other destination confirms it has the backup, and is never removed if every other destination fails.
+
+## 0.5.0
+
+* The plugin now announces new versions by itself: WordPress shows its ordinary update notice when Guru-host publishes one, and the Status tab gains a "Check for updates now" button. Updates are fetched from your account — nothing downloads automatically.
+
+## 0.4.0
+
+* The plugin is now Guru SimpleBackup, with the slug and text domain the WordPress.org directory requires. Nothing else changes: settings, backups and schedules carry over untouched.
+
+## 0.3.0
+
+* A quick note can be attached to any backup — type it next to "Back up now", or add one to an existing backup from the list — and it is shown when choosing what to restore.
+
+## 0.2.0
+
+* Restores All-in-One WP Migration `.wpress` files: upload one or scan for it on the server, and it goes through the same pipeline as the plugin's own backups — safety backup first, imported beside the live site, links updated automatically.
+* SSH keys protected by a passphrase now work for SFTP: enter the passphrase next to the key, both stored encrypted.
+
+## 0.1.1
+
+* A restore no longer locks itself out behind WordPress' maintenance page: visitors see the plugin's own holding page while the admin screens, the login page and the background work all keep running.
+* The database is imported into temporary tables and swapped in at the end, so the site stays up for the whole restore and the swap itself takes moments.
+
+## 0.1.0
+
+* First release.
