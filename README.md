@@ -4,7 +4,7 @@ A WordPress backup and restore plugin that stays small enough to trust: database
 and files into one zip, kept on this server and on your own SFTP server, on a
 daily, weekly and monthly schedule, restorable in two clicks.
 
-Sold once, from **[guru-host.co.uk](https://guru-host.co.uk/guru-simplebackup)**
+Sold once, from **[guru-host.co.uk](https://client.guru-host.co.uk/store/guru-simplebackup)**
 — no subscription, no licence keys, no per-site limits, updates included.
 Licence terms are provided with the purchase.
 
@@ -40,5 +40,5 @@ See [CHANGELOG.md](CHANGELOG.md) for the full version history.
 
 ## Questions
 
-* Product page & purchase: [guru-host.co.uk/guru-simplebackup](https://guru-host.co.uk/guru-simplebackup)
+* Product page & purchase: [client.guru-host.co.uk/store/guru-simplebackup](https://client.guru-host.co.uk/store/guru-simplebackup)
 * Existing customers: [your account](https://guru-host.co.uk/account) for downloads and support
