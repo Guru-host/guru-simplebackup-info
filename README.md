@@ -25,6 +25,9 @@ Licence terms are provided with the purchase.
 * A safety backup is always taken before a restore, so it can be undone
 * Moving a site to a new address rewrites the stored links for you
 * Skip database tables you do not want backed up — a plugin's 404 log can be larger than the rest of your database put together
+* Emails you when a backup fails, or when it was made but one of your destinations could not store it — with the reason, and no more than about once a day for the same problem
+* Says plainly when a saved SFTP password or key can no longer be read (for instance after the site's secret keys were changed), instead of failing quietly
+* A backup that did not reach every destination is shown as "Completed with warnings", and a failing upload cannot fill your server's disk
 * Every screen explains, in ordinary words, what the setting does
 
 ## Built for real hosting
@@ -37,7 +40,8 @@ does not matter. Downloads support resuming.
 
 ## Release notes
 
-See [CHANGELOG.md](CHANGELOG.md) for the full version history.
+See [CHANGELOG.md](CHANGELOG.md) for the full version history, or the
+[Releases](https://github.com/Guru-host/guru-simplebackup-info/releases) page for the notes of each version.
 
 ## Questions
 
